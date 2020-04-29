@@ -1,4 +1,4 @@
-task: AzureResourceGroupDeployment@2
+/*task: AzureResourceGroupDeployment@2
   displayName: 'Deploy template'
   inputs:
 deploymentScope: 'Resource Group'
@@ -11,4 +11,15 @@ deploymentScope: 'Resource Group'
     csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
     csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
     overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
-    deploymentMode: 'Incremental'
+    deploymentMode: 'Incremental'*/
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Free Trial(cbb58e5f-e25f-43fe-93d1-89c7f2e09d56)'
+    subscriptionId: 'cbb58e5f-e25f-43fe-93d1-89c7f2e09d56'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'csvk'
+    location: 'Central US'
+    templateLocation: 'URL of the file'
+    csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
+    deploymentMode: 'Validation'
