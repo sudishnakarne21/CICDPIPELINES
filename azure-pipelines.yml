@@ -1,17 +1,4 @@
-/*task: AzureResourceGroupDeployment@2
-  displayName: 'Deploy template'
-  inputs:
-deploymentScope: 'Resource Group'
-    ConnectedServiceName: 'demo-deploy-sp'
-    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'demogroup'
-    location: 'Central US'
-    templateLocation: 'URL of the file'
-    csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-    csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-    overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
-    deploymentMode: 'Incremental'*/
+
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
